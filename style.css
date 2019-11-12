@@ -1,0 +1,110 @@
+@font-face {
+    font-family: "font_game";
+    font-style: normal;
+    font-weight: normal;
+    src: url("./fonts/game-thrones.ttf") format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.page{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	background: url("imgs/darknoise.png");
+    height: 750px;
+    justify-items: center;
+    font-size: 20px;    
+}
+
+.logo_img {
+    width: 100%;
+    height: 100%;
+}
+
+.main_color_text{
+    color: #d3bb89;
+}
+.form_logining, .form_save {
+    flex-direction: column;
+    width: 450px;
+    justify-content: center;
+
+}
+
+.input_form_mess {
+    width: inherit;
+}
+
+.input_button {
+    display: flex;
+    width: inherit;
+    justify-content: center;
+    align-items: center;
+    background: #c19a49;
+}
+
+a {
+    text-decoration: none;
+}
+
+.input {
+    width: 100%;
+    height: 50px;
+    background:transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color:#d3bb89;
+    color: grey;
+}
+
+.form_logining > div ,.form_save>div {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h2{
+    font-family: "font_game";
+    text-align: center;
+}
+.color_text_white {
+    color: white;
+    font-size: 0.7em;
+}
+
+input{
+    font-size: 18px;
+    height: 2em;
+}
+
+input[type="submit"] {
+    border: none;
+    background: none;
+    color: white;
+    width: 100%;
+}
+
+.input[type="select"] {
+    color: 
+    white;
+}
+
+.mes_joined_game {
+    font-size: initial;
+}
+
+.mes_joined_game {
+    border-left: 1px solid;
+    border-color:#d3bb89;
+}
+    
+.mes_joined_game > p {
+    padding-left: 20px;
+}
+
+option{
+    background:#202020; 
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<title>GAME OF THRONES</title>
+</head>
+
+<script  type="text/javascript">
+	function show_form(){
+	
+		var d = document; 
+		var f_logining = d.getElementById('form_logining').style.display;
+		var f_save = d.getElementById('form_save').style.display;
+		
+		d.getElementById('form_logining').style.display = (f_logining == 'none')?'flex':'none';
+		d.getElementById('form_save').style.display = (f_save == 'none')?'flex':'none';
+
+	}
+</script>
+<body>
+	<div class="page">
+		<img class="logo_img" src="imgs/maxresdefault.jpg" alt="" >
+		
+		<form id="form_logining" class="form_logining" style="display: flex;">
+			<div class="input_form_mess">
+				<h2 class="main_color_text">GAME OF THRONES</h2>
+			</div>
+			<div class="box_mail">
+				<p class="main_color_text">Enter your email</p>
+				<input type="email" class="inp_mail input" value="arya@westeros.com" onfocus="this.value=''" onblur="(this.value=='')? this.value='arya@westeros.com':this.value;" >
+			</div>
+			<div class="box_pass">
+				<p class="main_color_text">Chosse secure password</p>
+				<p class="color_text_white">Must be at least 8 characters</p>
+				<input type="password" class="inp_pas input" value="password" onfocus="this.value=''" onblur="(this.value=='')? this.value='password':this.value;">
+			</div>
+			<div class="check_box">
+				<input type="checkbox" class="inp_ch_box">
+				<label for="" class="main_color_text">Remember me</label>
+			</div>
+			<div class="input_button">
+				<input class="btn_sing" type="submit" value="Sing Up"  onclick="show_form()">
+			</div>
+			
+		</form>
+
+		<form id="form_save" class="form_save" style="display: none;">
+			<div>
+				<h2 class="main_color_text">GAME OF THRONES</h2>
+			</div>
+			<div class="mes_joined_game color_text_white">
+				<p>You've successfully joined the game.</p>
+				<p>Tell us more about yourself.</p>									
+			</div>
+			<div>
+				<p class="main_color_text">Who are you?</p>
+				<p class="color_text_white">Alpha-numeric username</p>
+				<input type="text" class="input" value="arya" onfocus="this.value=''" onblur="(this.value=='')? this.value='arya':this.value;" >
+			</div>
+			<div>
+				<p class="main_color_text">Your Great House</p>
+				<select name="house" class="select_house input">
+					<option style="display:none;" selected>Select House</option>
+				    <option>Bronn's house </option>
+				    <option>House Arryn</option>
+				    <option>House Baratheon</option>
+				    <option>House Greyjoy</option>
+				</select>
+			</div>
+			<div>
+				<p class="main_color_text">Your preferences, hobbies, wishes, etc.</p>
+				<textarea class="input" cols="30" rows="10" onfocus="this.value=''" onblur="(this.value=='')? this.value='I have a long TOKILL list...':this.value;">I have a long TOKILL list...
+				</textarea>
+			</div>
+			<div class="input_button">
+				<input class="btn_save" type="submit" value="Save" >
+			</div>
+		</form>
+	</div>	
+</body>
+</html>
