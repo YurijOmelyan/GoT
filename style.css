@@ -1,56 +1,53 @@
 @font-face {
-    font-family: "font_game";
+    font-family: "font-game";
     font-style: normal;
     font-weight: normal;
     src: url("./fonts/game-thrones.ttf") format('truetype');
 }
 
-* {
-    box-sizing: border-box;
+body {
     margin: 0;
 }
 
-.page{
-	display: grid;
-	grid-template-columns: 50% 50%;
-	background: url("imgs/darknoise.png");
-    height: 750px;
-    justify-items: center;
-    font-size: 20px;    
-}
-
-.logo_img {
-    width: 100%;
-    height: 100%;
-}
-
-.main_color_text{
-    color: #d3bb89;
-}
-.form_logining, .form_save {
-    flex-direction: column;
-    width: 450px;
-    justify-content: center;
-
-}
-
-.input_form_mess {
-    width: inherit;
-}
-
-.input_button {
+.page {
     display: flex;
-    width: inherit;
+    width: 100%;
+    height: 100vh;
+}
+
+.page__logo-img {
+    width: 50%;
+    background-image: url("imgs/maxresdefault.jpg");
+    background-size: 100% 100%;
+}
+
+.form-logining, .form-save {
+    width: 50%;
+    background: url("imgs/darknoise.png");
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #c19a49;
 }
 
-a {
-    text-decoration: none;
+.form-logining > div, .form-save > div {
+    width: 60%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
-.input {
+.form-logining__heading, .form-save__heading {
+    text-align: center;
+    font-family: "font-game";
+}
+
+.font-color {
+    color: #d3bb89;
+    font-family: "serif - EB Garamond", "sans-serif - Open Sans";
+    font-size: 1.5em;
+}
+
+.style-input {
     width: 100%;
     height: 50px;
     background:transparent;
@@ -58,53 +55,116 @@ a {
     border-left: none;
     border-right: none;
     border-bottom-color:#d3bb89;
+    border-bottom-width: medium;
     color: grey;
 }
 
-.form_logining > div ,.form_save>div {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-h2{
-    font-family: "font_game";
-    text-align: center;
-}
-.color_text_white {
+.form-logining__box-pass :nth-child(2), 
+.form-save__username :nth-child(2) {
     color: white;
-    font-size: 0.7em;
+    font-size: 0.6em;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-input{
-    font-size: 18px;
-    height: 2em;
+.box-mail > p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-input[type="submit"] {
+.form-logining__button,
+.form-save__button {
+    background: #c19a49;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 1.5em;
+}
+
+.form-logining__button > input,
+.form-save__button > input {
     border: none;
     background: none;
     color: white;
+    font-size: 1em;
     width: 100%;
 }
 
-.input[type="select"] {
-    color: 
-    white;
+.form-logining__check-box .checkbox {
+    opacity: 0;
 }
 
-.mes_joined_game {
-    font-size: initial;
+.form-logining__check-box label::before{
+    content: "";
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border: 1px solid; 
 }
 
-.mes_joined_game {
-    border-left: 1px solid;
-    border-color:#d3bb89;
+.form-logining__check-box label::after {
+    content: "";
+    display: inline-block;
+    height: 6px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(-45deg);
 }
-    
-.mes_joined_game > p {
-    padding-left: 20px;
+  
+.form-logining__check-box label {
+    position: relative;
+}
+
+.form-logining__check-box label::before,
+.form-logining__check-box label::after {
+    position: absolute;
+}
+
+.form-logining__check-box label::before {
+    top: 5px;
+    left: -25px;
+}
+
+.form-logining__check-box label::after {
+    left: -20px;
+    top: 8px;
+}
+
+.form-logining__check-box input[type="checkbox"] + label::after {
+    content: none;
+}
+
+.form-logining__check-box input[type="checkbox"]:checked + label::after {
+    content: "";
+}
+
+.form-logining__check-box input[type="checkbox"]:focus + label::before {
+    outline: #c19a49 auto 5px;
+}
+   
+.form-save__message {
+
+    color:white;
+    border-left: 1px solid #d3bb89;
+    font-size: 0.7em;
+}
+
+.form-save__message > p {
+    margin-left: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.form-save__house {
+    display: flex;
+    flex-direction: column;
 }
 
 option{
     background:#202020; 
+}
+
+.form-save {
+    display: none;
 }
