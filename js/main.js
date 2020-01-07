@@ -2,37 +2,46 @@ const doc = document;
 
 /** button Form Save */
 doc.getElementById("buttonFormSave").onclick = () => {
-  let test = userName.checkValidity() && selectHouse.selectedIndex > 0;
+  const test =
+    userName.checkValidity() &&
+    selectHouse.selectedIndex > 0 &&
+    textareaAboutMe.value.length > 0;
 
-  errorUserName.style.visibility = !userName.checkValidity()
-    ? "visible"
-    : "hidden";
-
-  console.log(selectHouse.selectedIndex);
-  errorSelectHouse.style.visibility =
-    selectHouse.selectedIndex === 0 ? "visible" : "hidden";
-
+  hideOrShowMessage(errorUserName, !userName.checkValidity());
+  hideOrShowMessage(errorSelectHouse, selectHouse.selectedIndex === 0);
+  hideOrShowMessage(errorAboutMe, textareaAboutMe.value.length === 0);
   if (!test) {
     return;
   }
 };
+
+function hideOrShowMessage(el, check) {
+  if (check) {
+    el.classList.remove("hide--message");
+    el.classList.add("show--message");
+  } else {
+    el.classList.remove("show--message");
+    el.classList.add("hide--message");
+  }
+}
 
 /** button Form Logining */
 doc.getElementById("buttonFormLogining").onclick = () => {
   let test = email.checkValidity() && pass.checkValidity();
-
-  errorEmail.style.visibility = !email.checkValidity() ? "visible" : "hidden";
-  errorPass.style.visibility = !pass.checkValidity() ? "visible" : "hidden";
-
+  hideOrShowMessage(errorEmail, !email.checkValidity());
+  hideOrShowMessage(errorPass, !pass.checkValidity());
   if (!test) {
     return;
   }
-  doc.querySelector(".form-logining").style.display = "none";
-  doc.querySelector(".form-save").style.display = "flex";
+
+  doc.querySelector(".form-logining").classList.remove("show--block");
+  doc.querySelector(".form-logining").classList.add("hide--block");
+
+  doc.querySelector(".form-save").classList.remove("hide--block");
+  doc.querySelector(".form-save").classList.add("show--block");
 };
 
 /** checking select house*/
-let clickSelectHouse = false;
 const selectHouse = doc.getElementById("selectHouse");
 selectHouse.addEventListener("change", function(event) {
   if (selectHouse.selectedIndex > 0) {
@@ -82,39 +91,19 @@ pass.addEventListener("input", function(event) {
     };
   }
 });
+
 /**we will check the data entered into the element */
 function validateData(elem) {
   if (elem.validity.valueMissing) {
-    defaultData(elem);
+    elem.classList.remove("valid--data");
+    elem.classList.remove("invalid--data");
     return;
   }
   if (elem.checkValidity()) {
-    validData(elem);
+    elem.classList.add("valid--data");
+    elem.classList.remove("invalid--data");
   } else {
-    invalidData(elem);
+    elem.classList.remove("valid--data");
+    elem.classList.add("invalid--data");
   }
-}
-/**set initial styles */
-function defaultData(elem) {
-  elem.style.cssText = `
-  border-right:none;
-  border-left:none;
-  border-top:none;
-  `;
-}
-/**change element styles in case of correct data */
-function validData(elem) {
-  elem.style.cssText = `
-  border-right:1px solid green;
-  border-left:1px solid green;
-  border-top:1px solid green;
-  `;
-}
-/**change element styles in case of incorrect data */
-function invalidData(elem) {
-  elem.style.cssText = `
-  border-right:1px solid red;
-  border-left:1px solid red;
-  border-top:1px solid red;
-  `;
 }

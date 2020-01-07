@@ -12,107 +12,108 @@
   <body>
     <div class="page">
       <div class="page__logo-img"></div>
+      <div class="page__form">
+        <div class="page__heading">
+          <h1>GAME OF THRONES</h1>
+        </div>
+        <form class="form-logining page__form-logining font-color show--block">
+          <div class="box-mail form-logining__box-mail">
+            <label for="inputEmail">Enter your email</label>
+            <input
+              id="inputEmail"
+              type="email"
+              class="box-mail__input-mail style-input"
+              placeholder="arya@westeros.com"
+              required
+            />
+            <p id="errorEmail" class="error">
+              Your mail does not match the template! Correct the mail.
+            </p>
+          </div>
+          <div class="form-logining__box-pass">
+            <label for="inputPassword">Chosse secure password</label>
+            <p>Must be at least 8 characters</p>
+            <input
+              id="inputPassword"
+              type="password"
+              class="box-mail__input-pass style-input"
+              placeholder="password"
+              required
+              minlength="8"
+              maxlength="16"
+            />
+            <p id="errorPass" class="error">
+              Your password is less than 8 characters. Correct the password.
+            </p>
+          </div>
+          <div class="form-logining__check-box">
+            <input id="checkbox" type="checkbox" class="checkbox" />
+            <label for="checkbox">Remember me</label>
+          </div>
+          <div class="form-logining__button">
+            <button id="buttonFormLogining" type="button">Sing Up</button>
+          </div>
+        </form>
 
-      <form class="form-logining page__form-logining font-color">
-        <div class="form-logining__heading">
-          <h2>GAME OF THRONES</h2>
-        </div>
-        <div class="box-mail form-logining__box-mail">
-          <label for="input-email">Enter your email</label>
-          <input
-            id="inputEmail"
-            type="email"
-            class="box-mail__input-mail style-input"
-            placeholder="arya@westeros.com"
-            required
-          />
-          <p id="errorEmail" class="error">
-            Your mail does not match the template! Correct the mail.
-          </p>
-        </div>
-        <div class="form-logining__box-pass">
-          <label for="input-password">Chosse secure password</label>
-          <p>Must be at least 8 characters</p>
-          <input
-            id="inputPassword"
-            type="password"
-            class="box-mail__input-pass style-input"
-            placeholder="password"
-            required
-            minlength="8"
-            maxlength="16"
-          />
-          <p id="errorPass" class="error">
-            Your password is less than 8 characters. Correct the password.
-          </p>
-        </div>
-        <div class="form-logining__check-box">
-          <input id="checkbox" type="checkbox" class="checkbox" />
-          <label for="checkbox">Remember me</label>
-        </div>
-        <div class="form-logining__button">
-          <button id="buttonFormLogining" type="button">Sing Up</button>
-        </div>
-      </form>
-
-      <form class="form-save page__form-save font-color">
-        <div class="form-save__heading">
-          <h2>GAME OF THRONES</h2>
-        </div>
-        <div class="form-save__message">
-          <p>You've successfully joined the game.</p>
-          <p>Tell us more about yourself.</p>
-        </div>
-        <div class="form-save__username">
-          <label for="input-username">Who are you?</label>
-          <p>Alpha-numeric username</p>
-          <input
-            id="inputUserName"
-            type="text"
-            class="style-input"
-            placeholder="arya"
-            pattern="^\w+$"
-            minlength="4"
-            maxlength="20"
-            required
-          />
-          <p id="errorUserName" class="error">
-            Your username does not match the pattern. Correct the username.
-          </p>
-        </div>
-        <div class="form-save__house">
-          <label>Your Great House</label>
-          <select
-            id="selectHouse"
-            class="select-house style-input"
-            name="house"
-          >
-            <option selected>Select House</option>
-            <option>Bronn's house </option>
-            <option>House Arryn</option>
-            <option>House Baratheon</option>
-            <option>House Greyjoy</option>
-          </select>
-          <p id="errorSelectHouse" class="error">
-            You have not chosen a home. Choose a house.
-          </p>
-        </div>
-        <div>
-          <label for="textarea-about-me"
-            >Your preferences, hobbies, wishes, etc.</label
-          >
-          <textarea
-            id="textarea-about-me"
-            class="about-me style-input"
-            cols="30"
-            rows="10"
-            placeholder="I have a long TOKILL list..."
-          ></textarea>
-        </div>
-        <div class="form-save__button">
-          <button id="buttonFormSave" type="button">Save</button>
-        </div>
-      </form>
+        <form class="form-save page__form-save font-color hide--block">
+          <div class="form-save__message">
+            <p>You've successfully joined the game.</p>
+            <p>Tell us more about yourself.</p>
+          </div>
+          <div class="form-save__username">
+            <label for="inputUserName">Who are you?</label>
+            <p>Alpha-numeric username</p>
+            <input
+              id="inputUserName"
+              type="text"
+              class="style-input"
+              placeholder="arya"
+              pattern="^\w+$"
+              minlength="4"
+              maxlength="20"
+              required
+            />
+            <p id="errorUserName" class="error">
+              Your username does not match the pattern. Correct the username.
+            </p>
+          </div>
+          <div class="form-save__house">
+            <label>Your Great House</label>
+            <select
+              id="selectHouse"
+              class="select-house style-input"
+              name="house"
+            >
+              <option selected>Select House</option>
+              <option>Bronn's house </option>
+              <option>House Arryn</option>
+              <option>House Baratheon</option>
+              <option>House Greyjoy</option>
+            </select>
+            <p id="errorSelectHouse" class="error">
+              You have not chosen a home. Choose a house.
+            </p>
+          </div>
+          <div>
+            <label for="textareaAboutMe"
+              >Your preferences, hobbies, wishes, etc.</label
+            >
+            <textarea
+              id="textareaAboutMe"
+              class="about-me style-input"
+              cols="30"
+              rows="10"
+              placeholder="I have a long TOKILL list..."
+            ></textarea>
+            <p id="errorAboutMe" class="error">
+              Indicate your hobby
+            </p>
+          </div>
+          <div class="form-save__button">
+            <button id="buttonFormSave" type="button">Save</button>
+          </div>
+        </form>
+      </div>
     </div>
     <script src="js/main.js"></script>
   </body>
