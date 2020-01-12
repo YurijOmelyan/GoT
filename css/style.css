@@ -14,7 +14,7 @@ p {
   font-size: 0.6em;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: sans-serif, serif;
+  font-family: Open Sans, sans-serif;
 }
 
 .form-save__message > p {
@@ -55,7 +55,7 @@ p {
 }
 
 .page__heading {
-  margin-top: 20%;
+  margin-top: 16vh;
   text-align: center;
   font-family: GameOfThrones, sans-serif;
   color: #d3bb89;
@@ -64,6 +64,7 @@ p {
 .font-color {
   color: #d3bb89;
   font-size: 2em;
+  font-family: EB Garamond, serif;
 }
 
 .style-input {
@@ -84,7 +85,7 @@ p {
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 2em;
+  height: 6vh;
 }
 
 button {

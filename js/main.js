@@ -5,11 +5,11 @@ doc.getElementById("buttonFormSave").onclick = () => {
   const test =
     userName.checkValidity() &&
     selectHouse.selectedIndex > 0 &&
-    textareaAboutMe.value.length > 0;
+    aboutMe.checkValidity();
 
   hideOrShowMessage(errorUserName, !userName.checkValidity());
   hideOrShowMessage(errorSelectHouse, selectHouse.selectedIndex === 0);
-  hideOrShowMessage(errorAboutMe, textareaAboutMe.value.length === 0);
+  hideOrShowMessage(errorAboutMe, !aboutMe.checkValidity());
   if (!test) {
     return;
   }
@@ -40,6 +40,20 @@ doc.getElementById("buttonFormLogining").onclick = () => {
   doc.querySelector(".form-save").classList.remove("hide--block");
   doc.querySelector(".form-save").classList.add("show--block");
 };
+
+/** check textarea */
+const aboutMe = doc.getElementById("textareaAboutMe");
+let clickAboutMe = false;
+aboutMe.addEventListener("input", function(event) {
+  if (clickAboutMe) {
+    validateData(aboutMe);
+  } else {
+    aboutMe.onblur = () => {
+      clickAboutMe = true;
+      validateData(aboutMe);
+    };
+  }
+});
 
 /** checking select house*/
 const selectHouse = doc.getElementById("selectHouse");
