@@ -7,6 +7,7 @@
 
 body {
   margin: 0;
+  background: url("../imgs/darknoise.png");
 }
 
 p {
@@ -27,16 +28,29 @@ p {
   height: 100vh;
 }
 
-.page__logo-img {
+.flexslider {
   width: 50%;
-  background-image: url("../imgs/maxresdefault.jpg");
-  background-size: cover;
-  background-position: center;
+  height: 100%;
+  background: inherit;
+  border: none;
+}
+
+.flexslider .slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.slides,
+.slides > li,
+.flex-control-nav,
+.flex-direction-nav {
+  height: 100%;
+  width: 100%;
 }
 
 .page__form {
   width: 50%;
-  background: url("../imgs/darknoise.png");
 }
 
 .form-logining,
@@ -70,7 +84,7 @@ p {
 .style-input {
   width: 100%;
   height: 50px;
-  background: transparent;
+  background-color: transparent;
   border-width: 0 0 1em 0;
   border-bottom-color: #d3bb89;
   border-bottom-width: medium;

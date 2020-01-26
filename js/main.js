@@ -1,4 +1,17 @@
 const doc = document;
+$(document).ready(function() {
+  $(function() {
+    $(".flexslider").flexslider({ slideshowSpeed: 5000 });
+    $("select")
+      .selectBoxIt({
+        autoWidth: false,
+        defaultText: "Select House"
+      })
+      .change(function() {
+        $(".flexslider").flexslider(this.value - 1);
+      });
+  });
+});
 
 /** button Form Save */
 doc.getElementById("buttonFormSave").onclick = () => {

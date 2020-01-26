@@ -2,16 +2,93 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--slider https://woocommerce.com/flexslider/-->
+    <link rel="stylesheet" href="/GoT/slider/flexslider.css" />
+    <script src="/GoT/slider/jquery.flexslider.js"></script>
+
+    <!--select  http://gregfranko.com/jquery.selectBoxIt.js/ -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script src="http://gregfranko.com/jquery.selectBoxIt.js/js/jquery.selectBoxIt.min.js"></script>
+    <link rel="stylesheet" href="/GoT/select/style.css" />
+
     <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=EB+Garamond|Open+Sans&display=swap"
       rel="stylesheet"
     />
+
     <title>GAME OF THRONES</title>
   </head>
   <body>
     <div class="page">
-      <div class="page__logo-img"></div>
+      <div class="flexslider">
+        <ul class="slides">
+          <li>
+            <img
+              id="houseStark"
+              src="/GoT/imgs/house/248px-Shield.png"
+              class="stark"
+            />
+          </li>
+          <li>
+            <img
+              id="houseTully"
+              src="/GoT/imgs/house/248px-TullyHBO.png"
+              class="tully"
+            />
+          </li>
+          <li>
+            <img
+              id="houseLannister"
+              src="/GoT/imgs/house/248px-Lannsiter.png"
+              class="lannister"
+            />
+          </li>
+          <li class="slide">
+            <img
+              id="houseArryn"
+              src="/GoT/imgs/house/248px-ArrynSigil.png"
+              class="arryn"
+            />
+          </li>
+          <li>
+            <img
+              id="houseTargaryen"
+              src="/GoT/imgs/house/248px-Targaryen_byNarwen.png"
+              class="targaryen"
+            />
+          </li>
+          <li>
+            <img
+              id="houseGreyjoy"
+              src="/GoT/imgs/house/248px-GreyjoyNarwen.png"
+              class="greyjoy"
+            />
+          </li>
+          <li class="slide">
+            <img
+              id="houseBaratheon"
+              src="/GoT/imgs/house/248px-Baratheon_heraldry.png"
+              class="baratheon"
+            />
+          </li>
+          <li>
+            <img
+              id="houseTyrell"
+              src="/GoT/imgs/house/248px-Shield-tyrell.png"
+              class="tyrell"
+            />
+          </li>
+          <li>
+            <img
+              id="houseMartell"
+              src="/GoT/imgs/house/248px-Shield-martell.png"
+              class="martell"
+            />
+          </li>
+        </ul>
+      </div>
       <div class="page__form">
         <div class="page__heading">
           <h1>GAME OF THRONES</h1>
@@ -84,11 +161,15 @@
               class="select-house style-input"
               name="house"
             >
-              <option selected>Select House</option>
-              <option>Bronn's house </option>
-              <option>House Arryn</option>
-              <option>House Baratheon</option>
-              <option>House Greyjoy</option>
+              <option value="1">Stark </option>
+              <option value="2">Tully</option>
+              <option value="3">Lannister</option>
+              <option value="4">Arryn</option>
+              <option value="5">Targaryen </option>
+              <option value="6">Greyjoy</option>
+              <option value="7">Baratheon</option>
+              <option value="8">Tyrell</option>
+              <option value="9">Martell</option>
             </select>
             <p id="errorSelectHouse" class="error">
               You have not chosen a home. Choose a house.
