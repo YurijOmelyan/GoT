@@ -1,4 +1,5 @@
 const doc = document;
+
 $(document).ready(function() {
   $(function() {
     $(".flexslider").flexslider({
@@ -37,12 +38,15 @@ doc.getElementById("buttonFormSave").onclick = () => {
 };
 
 function hideOrShowMessage(el, check) {
+  const hideMessage = "hide--message";
+  const showMessage = "show--message";
+
   if (check) {
-    el.classList.remove("hide--message");
-    el.classList.add("show--message");
+    el.classList.remove(hideMessage);
+    el.classList.add(showMessage);
   } else {
-    el.classList.remove("show--message");
-    el.classList.add("hide--message");
+    el.classList.remove(showMessage);
+    el.classList.add(hideMessage);
   }
 }
 
@@ -55,11 +59,16 @@ doc.getElementById("buttonFormLogining").onclick = () => {
     return;
   }
 
-  doc.querySelector(".form-logining").classList.remove("show--block");
-  doc.querySelector(".form-logining").classList.add("hide--block");
+  const showBlock = "show--block";
+  const hideBlock = "hide--block";
 
-  doc.querySelector(".form-save").classList.remove("hide--block");
-  doc.querySelector(".form-save").classList.add("show--block");
+  const formLogining = ".form-logining";
+  doc.querySelector(formLogining).classList.remove(showBlock);
+  doc.querySelector(formLogining).classList.add(hideBlock);
+
+  const formSave = ".form-save";
+  doc.querySelector(formSave).classList.remove(hideBlock);
+  doc.querySelector(formSave).classList.add(showBlock);
 };
 
 /** check textarea */
@@ -68,10 +77,12 @@ let clickAboutMe = false;
 aboutMe.addEventListener("input", function(event) {
   if (clickAboutMe) {
     validateData(aboutMe);
+    hideOrShowMessage(errorAboutMe, !aboutMe.checkValidity());
   } else {
     aboutMe.onblur = () => {
       clickAboutMe = true;
       validateData(aboutMe);
+      hideOrShowMessage(errorAboutMe, !aboutMe.checkValidity());
     };
   }
 });
@@ -83,6 +94,7 @@ selectHouse.addEventListener("change", function(event) {
     validData(selectHouse);
   }
   defaultData(selectHouse);
+  hideOrShowMessage(errorSelectHouse, selectHouse.selectedIndex === 0);
 });
 
 /** checking username */
@@ -91,10 +103,12 @@ const userName = doc.getElementById("inputUserName");
 userName.addEventListener("input", function(event) {
   if (clickUserName) {
     validateData(userName);
+    hideOrShowMessage(errorUserName, !userName.checkValidity());
   } else {
     userName.onblur = () => {
       clickUserName = true;
       validateData(userName);
+      hideOrShowMessage(errorUserName, !userName.checkValidity());
     };
   }
 });
@@ -105,10 +119,12 @@ const email = doc.getElementById("inputEmail");
 email.addEventListener("input", function(event) {
   if (clickEmail) {
     validateData(email);
+    hideOrShowMessage(errorEmail, !email.checkValidity());
   } else {
     email.onblur = () => {
       clickEmail = true;
       validateData(email);
+      hideOrShowMessage(errorEmail, !email.checkValidity());
     };
   }
 });
@@ -119,26 +135,31 @@ const pass = doc.getElementById("inputPassword");
 pass.addEventListener("input", function(event) {
   if (clickPass) {
     validateData(pass);
+    hideOrShowMessage(errorPass, !pass.checkValidity());
   } else {
     pass.onblur = () => {
       clickPass = true;
       validateData(pass);
+      hideOrShowMessage(errorPass, !pass.checkValidity());
     };
   }
 });
 
 /**we will check the data entered into the element */
 function validateData(elem) {
+  const validData = "valid--data";
+  const invalidData = "invalid--data";
+
   if (elem.validity.valueMissing) {
-    elem.classList.remove("valid--data");
-    elem.classList.remove("invalid--data");
+    elem.classList.remove(validData);
+    elem.classList.remove(invalidData);
     return;
   }
   if (elem.checkValidity()) {
-    elem.classList.add("valid--data");
-    elem.classList.remove("invalid--data");
+    elem.classList.add(validData);
+    elem.classList.remove(invalidData);
   } else {
-    elem.classList.remove("valid--data");
-    elem.classList.add("invalid--data");
+    elem.classList.remove(validData);
+    elem.classList.add(invalidData);
   }
 }
