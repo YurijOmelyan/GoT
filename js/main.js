@@ -24,13 +24,14 @@ $(document).ready(function() {
 
 /** button Form Save */
 doc.getElementById("buttonFormSave").onclick = () => {
+  const selectHouseBoxIt = doc
+    .getElementById("selectHouseSelectBoxItText")
+    .getAttribute("data-val");
   const test =
-    userName.checkValidity() &&
-    selectHouse.selectedIndex > 0 &&
-    aboutMe.checkValidity();
+    userName.checkValidity() && selectHouseBoxIt > 0 && aboutMe.checkValidity();
 
   hideOrShowMessage(errorUserName, !userName.checkValidity());
-  hideOrShowMessage(errorSelectHouse, selectHouse.selectedIndex === 0);
+  hideOrShowMessage(errorSelectHouse, selectHouseBoxIt == 0);
   hideOrShowMessage(errorAboutMe, !aboutMe.checkValidity());
   if (!test) {
     return;
@@ -75,6 +76,7 @@ doc.getElementById("buttonFormLogining").onclick = () => {
 const aboutMe = doc.getElementById("textareaAboutMe");
 let clickAboutMe = false;
 aboutMe.addEventListener("input", function(event) {
+  console.log(aboutMe.checkValidity());
   if (clickAboutMe) {
     validateData(aboutMe);
     hideOrShowMessage(errorAboutMe, !aboutMe.checkValidity());
