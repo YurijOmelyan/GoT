@@ -1,0 +1,213 @@
+@font-face {
+  font-family: GameOfThrones;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/game-thrones.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  background: url("../images/darknoise.png");
+  overflow: hidden;
+}
+
+p {
+  color: white;
+  font-size: 0.6em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Open Sans, sans-serif;
+}
+
+.form-save__message > p {
+  margin-left: 5%;
+}
+
+.page {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.flexslider {
+  width: 50%;
+  height: 100%;
+  background: inherit;
+  border: none;
+}
+
+.flexslider .slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.slides,
+.slides > li,
+.flex-control-nav,
+.flex-direction-nav {
+  height: 100%;
+  width: 100%;
+}
+
+.page__form {
+  width: 50%;
+}
+
+.form-logining,
+.form-save {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-logining > div,
+.form-save > div {
+  width: 60%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.page__heading {
+  margin-top: 16vh;
+  text-align: center;
+  font-family: GameOfThrones, sans-serif;
+  color: #d3bb89;
+}
+
+.font-color {
+  color: #d3bb89;
+  font-size: 2em;
+  font-family: EB Garamond, serif;
+}
+
+.style-input {
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  border-width: 0 0 1em 0;
+  border-bottom-color: #d3bb89;
+  border-bottom-width: medium;
+  color: grey;
+  outline: none;
+  font-size: 16px;
+}
+
+.form-logining__button,
+.form-save__button {
+  background: #c19a49;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 6vh;
+}
+
+input[type="submit"] {
+  border: none;
+  background: none;
+  color: white;
+  font-size: 1em;
+  width: 100%;
+}
+
+input[type="submit"]:hover {
+  background: #d6af5e;
+}
+
+.form-logining__check-box .checkbox {
+  opacity: 0;
+}
+
+.form-logining__check-box label::before {
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border: 1px solid;
+  top: 10px;
+  left: -25px;
+  position: absolute;
+}
+
+.form-logining__check-box label::after {
+  content: "";
+  display: inline-block;
+  height: 6px;
+  width: 10px;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  transform: rotate(-45deg);
+  left: -20px;
+  top: 14px;
+  position: absolute;
+}
+
+.form-logining__check-box label {
+  position: relative;
+}
+
+.form-logining__check-box input[type="checkbox"] + label::after {
+  content: none;
+}
+
+.form-logining__check-box input[type="checkbox"]:checked + label::after {
+  content: "";
+}
+
+.form-logining__check-box input[type="checkbox"]:focus + label::before {
+  outline: #c19a49 auto 5px;
+}
+
+.form-save__message {
+  color: white;
+  border-left: 1px solid #d3bb89;
+}
+
+.form-save__house {
+  display: flex;
+  flex-direction: column;
+}
+
+option {
+  background: #202020;
+}
+
+.about-me {
+  resize: none;
+}
+.select-house > option:first-child {
+  display: none;
+}
+.error {
+  visibility: hidden;
+  color: red;
+}
+
+.invalid--data {
+  border-right: 1px solid red;
+  border-left: 1px solid red;
+  border-top: 1px solid red;
+}
+
+.valid--data {
+  border-right: 1px solid green;
+  border-left: 1px solid green;
+  border-top: 1px solid green;
+}
+
+.show--message {
+  visibility: visible;
+}
+
+.hide--message {
+  visibility: hidden;
+}
+
+.show--block {
+  display: flex;
+}
+
+.hide--block {
+  display: none;
+}
