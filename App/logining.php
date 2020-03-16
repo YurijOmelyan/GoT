@@ -7,18 +7,16 @@
                 type="email"
                 class="box-mail__input-mail style-input"
                 placeholder="arya@westeros.com"
-                value="<?php
-
-                if (isset($_POST['email'])) {
-                    echo $_POST['email'];
-                } ?>"
+            <?php if (isset($_POST['email'])): ?>
+                value='<?= $_POST['email'] ?>'
+            <? endif; ?>
                 required
         />
         <p id="errorEmail" class="error"
-            <?php if (isset($_SESSION['errorEmail'])) { ?>
+            <?php if (isset($_SESSION['errorEmail'])): ?>
                 style="visibility: visible"
-                <?php unset($_SESSION['errorEmail']);
-            } ?>
+                <? unset($_SESSION['errorEmail']);
+            endif; ?>
         >Your mail does not match the template! Correct the mail.</p>
     </div>
     <div class="form-logining__box-pass">
@@ -33,15 +31,15 @@
                 required
                 minlength="8"
                 maxlength="16"
-                value="<?php if (isset($_POST['password'])) {
-                    echo $_POST['password'];
-                } ?>"
+            <?php if (isset($_POST['password'])): ?>
+                value='<?= $_POST['password'] ?>'
+            <? endif; ?>
         />
         <p id="errorPass" class="error"
-            <?php if (isset($_SESSION['errorPass'])) { ?>
+            <?php if (isset($_SESSION['errorPass'])): ?>
                 style="visibility: visible"
                 <?php unset($_SESSION['errorPass']);
-            } ?>
+            endif; ?>
         >Your password is less than 8 characters. Correct the password.</p>
     </div>
     <div class="form-logining__check-box">
@@ -52,11 +50,10 @@
         <input type="submit" name="formLogining" id="buttonFormLogining" value="Sing Up">
     </div>
     <p class="error"
-        <?php
-        if (isset($_SESSION['userFound'])) { ?>
+        <?php if (isset($_SESSION['userFound'])): ?>
             style="visibility: visible"
             <?php unset($_SESSION['userFound']);
-        } ?>
+        endif; ?>
     >The user with this mail is already registered in the database.</p>
 </form>
 <script src="../Public/js/function.js"></script>

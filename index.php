@@ -27,15 +27,15 @@ session_start();
 <div class="page">
     <div class="flexslider">
         <ul class="slides">
-            <?php
-            $dir = 'Public/images/house/';
+            <?php $dir = 'Public/images/house/';
             $file = 'imageList.json';
             $json = file_get_contents($dir . $file);
             $arr = json_decode($json, true);
-            foreach ($arr as $key => $value) {
-                echo '<li><img id="house' . $key . '" src="' . $dir . $value . '" class="' . $key . '" alt="' . $key . '"/></li>';
-            };
-            ?>
+            foreach ($arr as $key => $value): ?>
+                <li>
+                    <img id='house<?= $key; ?>' src='<?= $dir . $value; ?>' class='<?= $key; ?>' alt='<?= $key; ?>'/>
+                </li>
+            <? endforeach; ?>
         </ul>
     </div>
     <div class="page__form">

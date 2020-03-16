@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_POST['formLogining'])) {
     if (!empty($mail = $_POST['email']) && !empty($pass = $_POST['password'])) {
         if (checkData(htmlspecialchars($mail), htmlspecialchars($pass))) {
@@ -16,27 +15,25 @@ if (isset($_POST['formLogining'])) {
 if (isset($_POST['formSave'])) {
     $error = 0;
     if (isset($_POST['userName']) && !empty($_POST['userName'])) {
-        $userName = $_POST['userName'];
+        $userName = htmlspecialchars($_POST['userName']);
     } else {
         $_SESSION['errorUserName'] = 'errorUserName';
         $error = 1;
     }
     if (isset($_POST['house']) && !empty($_POST['house'])) {
-        $house = $_POST['house'];
+        $house = htmlspecialchars($_POST['house']);
     } else {
         $_SESSION['errorSelectHouse'] = 'errorSelectHouse';
         $error = 1;
     }
     if (isset($_POST['aboutMe']) && !empty($_POST['aboutMe'])) {
-        $aboutMe = $_POST['aboutMe'];
+        $aboutMe = htmlspecialchars($_POST['aboutMe']);
     } else {
         $_SESSION['errorAboutMe'] = 'errorAboutMe';
         $error = 1;
     }
 
     if ($error === 0) {
-        $userName = $_POST['userName'];
-        $aboutMe = $_POST['aboutMe'];
 
         $arrUser['mail'] = $_SESSION['mail'];
         $arrUser['pass'] = password_hash($_SESSION['mail'], PASSWORD_DEFAULT);
@@ -91,5 +88,3 @@ function isUserInDatabase($mail)
     }
     return false;
 }
-
-?>

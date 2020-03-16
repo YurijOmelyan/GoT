@@ -14,16 +14,16 @@
                 placeholder="arya"
                 pattern="\w+"
                 maxlength="20"
-                value=" <?php if (isset($_POST['userName'])) {
-                    echo $_POST['userName'];
-                } ?>"
-                required
+            <?php if (isset($_POST['userName'])) : ?>
+                value="<?= $_POST['userName']; ?>"
+            <? endif; ?>
+                requireden
         />
         <p id="errorUserName" class="error"
-            <?php if (isset($_SESSION['errorUserName'])) { ?>
+            <?php if (isset($_SESSION['errorUserName'])) : ?>
                 style="visibility: visible"
-                <?php unset($_SESSION['errorUserName']);
-            } ?>
+                <? unset($_SESSION['errorUserName']);
+            endif; ?>
         >Your username does not match the pattern. Correct the username.
         </p>
     </div>
@@ -31,19 +31,16 @@
         <label for="selectHouse">Your Great House</label>
         <select id="selectHouse" class="select-house style-input" name="house">
             <option value="0" selected>Select House</option>
-            <?php
-            $index = 1;
-            foreach ($arr as $key => $value) {
-                echo '<option value="' . $index++ . '">' . $key . ' </option>';
-            };
-            ?>
+            <?php $index = 1;
+            foreach ($arr as $key => $value) :?>
+                <option value="<?= $index++ ?>"><?= $key; ?> </option>
+            <? endforeach; ?>
         </select>
         <p id="errorSelectHouse" class="error"
-            <?php
-            if (isset($_SESSION['errorSelectHouse'])) { ?>
+            <?php if (isset($_SESSION['errorSelectHouse'])) : ?>
                 style="visibility: visible"
-                <?php unset($_SESSION['errorSelectHouse']);
-            } ?>
+                <? unset($_SESSION['errorSelectHouse']);
+            endif; ?>
         >You have not chosen a home. Choose a house.
         </p>
     </div>
@@ -61,22 +58,20 @@
                 echo $_POST['aboutMe'];
             } ?></textarea>
         <p id="errorAboutMe" class="error"
-            <?php if (isset($_SESSION['errorAboutMe'])) { ?>
+            <?php if (isset($_SESSION['errorAboutMe'])) : ?>
                 style="visibility: visible"
-                <?php unset($_SESSION['errorAboutMe']);
-            } ?>
+                <? unset($_SESSION['errorAboutMe']);
+            endif; ?>
         >Indicate your hobby.</p>
     </div>
     <div class="form-save__button">
         <input type="submit" name="formSave" value="Save">
     </div>
-    <?php if (isset($_SESSION['success'])) {
-        unset($_SESSION);
-        session_destroy();
-        ?>
+    <?php if (isset($_SESSION['success'])) : ?>
+        <? unset($_SESSION);
+        session_destroy(); ?>
         <p>Your data has been saved successfully.</p>
-        <?php ;
-    } ?>
+    <? endif; ?>
 </form>
 <script src="../Public/js/function.js"></script>
 <script src="../Public/js/save.js"></script>
