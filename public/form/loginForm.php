@@ -47,7 +47,7 @@
         <label for="checkbox">Remember me</label>
     </div>
     <div class="form-logining__button">
-        <input type="submit" name="formLogining" id="buttonFormLogining" value="Sing Up">
+        <input type="submit" name="loginButton" id="buttonLoginForm" value="Sing Up">
     </div>
     <p class="error"
         <?php if (isset($_SESSION['userFound'])): ?>
@@ -56,5 +56,4 @@
         endif; ?>
     >The user with this mail is already registered in the database.</p>
 </form>
-<script src="../Public/js/function.js"></script>
-<script src="../Public/js/login.js"></script>
+<script src="public/js/loginForm.js"></script>

@@ -1,12 +1,7 @@
 const doc = document;
 
-$(document).ready(function() {
-    $(function() {
-        $(".flexslider").flexslider({
-            slideshowSpeed: 5000,
-            directionNav: false,
-            controlNav: false
-        });
+$(document).ready(function () {
+    $(function () {
         $("select")
             .selectBoxIt({
                 autoWidth: false,
@@ -16,7 +11,7 @@ $(document).ready(function() {
                 hideEffect: "fadeOut",
                 hideEffectSpeed: 400
             })
-            .change(function() {
+            .change(function () {
                 $(".flexslider").flexslider(this.value - 1);
             });
     });
@@ -26,7 +21,6 @@ $(document).ready(function() {
 const aboutMe = doc.getElementById("textareaAboutMe");
 let clickAboutMe = false;
 aboutMe.addEventListener("input", function(event) {
-    console.log(aboutMe.checkValidity());
     if (clickAboutMe) {
         validateData(aboutMe);
         hideOrShowMessage(errorAboutMe, !aboutMe.checkValidity());
@@ -65,20 +59,3 @@ userName.addEventListener("input", function(event) {
     }
 });
 
-function validateData(elem) {
-    const validData = "valid--data";
-    const invalidData = "invalid--data";
-
-    if (elem.validity.valueMissing) {
-        elem.classList.remove(validData);
-        elem.classList.remove(invalidData);
-        return;
-    }
-    if (elem.checkValidity()) {
-        elem.classList.add(validData);
-        elem.classList.remove(invalidData);
-    } else {
-        elem.classList.remove(validData);
-        elem.classList.add(invalidData);
-    }
-}

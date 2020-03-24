@@ -14,10 +14,10 @@
                 placeholder="arya"
                 pattern="\w+"
                 maxlength="20"
+                required
             <?php if (isset($_POST['userName'])) : ?>
                 value="<?= $_POST['userName']; ?>"
             <? endif; ?>
-                requireden
         />
         <p id="errorUserName" class="error"
             <?php if (isset($_SESSION['errorUserName'])) : ?>
@@ -30,11 +30,8 @@
     <div class="form-save__house">
         <label for="selectHouse">Your Great House</label>
         <select id="selectHouse" class="select-house style-input" name="house">
-            <option value="0" selected>Select House</option>
-            <?php $index = 1;
-            foreach ($arr as $key => $value) :?>
-                <option value="<?= $index++ ?>"><?= $key; ?> </option>
-            <? endforeach; ?>
+            <option value="0" selected>Select House
+                <?php getSelect(); ?>
         </select>
         <p id="errorSelectHouse" class="error"
             <?php if (isset($_SESSION['errorSelectHouse'])) : ?>
@@ -65,13 +62,13 @@
         >Indicate your hobby.</p>
     </div>
     <div class="form-save__button">
-        <input type="submit" name="formSave" value="Save">
+        <input type="submit" name="profileButton" value="Save">
     </div>
     <?php if (isset($_SESSION['success'])) : ?>
-        <? unset($_SESSION);
-        session_destroy(); ?>
         <p>Your data has been saved successfully.</p>
-    <? endif; ?>
+        <?
+        unset($_SESSION);
+        session_destroy();
+    endif; ?>
 </form>
-<script src="../Public/js/function.js"></script>
-<script src="../Public/js/save.js"></script>
+<script src="public/js/profileForm.js"></script>

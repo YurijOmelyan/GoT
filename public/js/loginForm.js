@@ -1,26 +1,15 @@
 const doc = document;
-
-$(document).ready(function() {
-    $(function() {
-        $(".flexslider").flexslider({
-            slideshowSpeed: 5000,
-            directionNav: false,
-            controlNav: false
-        });
-    });
-});
-
 /** button Form Logining */
-doc.getElementById("buttonFormLogining").onclick = () => {
-  let test = email.checkValidity() && pass.checkValidity();
-  hideOrShowMessage(errorEmail, !email.checkValidity());
-  hideOrShowMessage(errorPass, !pass.checkValidity());
+doc.getElementById("buttonLoginForm").onclick = () => {
+    let test = email.checkValidity() && pass.checkValidity();
+    hideOrShowMessage(errorEmail, !email.checkValidity());
+    hideOrShowMessage(errorPass, !pass.checkValidity());
 };
 
 /**checking mail*/
 let clickEmail = false;
 const email = doc.getElementById("inputEmail");
-email.addEventListener("input", function(event) {
+email.addEventListener("input",      function(event) {
     if (clickEmail) {
         validateData(email);
         hideOrShowMessage(errorEmail, !email.checkValidity());
@@ -48,3 +37,4 @@ pass.addEventListener("input", function(event) {
         };
     }
 });
+
