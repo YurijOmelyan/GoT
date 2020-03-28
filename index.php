@@ -29,7 +29,6 @@ $form = new appLogic();
     <title>GAME OF THRONES</title>
 </head>
 <body>
-<script src="public/js/function.js"></script>
 <div class="page">
     <div class="flexslider">
         <ul class="slides">
@@ -43,5 +42,6 @@ $form = new appLogic();
         <?php $form->getForm(); ?>
     </div>
 </div>
+<script src="public/js/function.js"></script>
 </body>
 </html>
