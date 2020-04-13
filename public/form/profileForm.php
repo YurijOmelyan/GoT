@@ -14,32 +14,16 @@
                 placeholder="arya"
                 pattern="\w+"
                 maxlength="20"
+                value=""
                 required
-            <?php if (isset($_POST['userName'])) : ?>
-                value="<?= $_POST['userName']; ?>"
-            <? endif; ?>
         />
         <p id="errorUserName" class="error"
-            <?php if (isset($_SESSION['errorUserName'])) : ?>
-                style="visibility: visible"
-                <? unset($_SESSION['errorUserName']);
-            endif; ?>
         >Your username does not match the pattern. Correct the username.
         </p>
     </div>
-    <div class="form-save__house">
+    <div id="boxSelect" class="form-save__house">
         <label for="selectHouse">Your Great House</label>
-        <select id="selectHouse" class="select-house style-input" name="house">
-            <option value="0" selected>Select House
-                <?php getSelect(); ?>
-        </select>
-        <p id="errorSelectHouse" class="error"
-            <?php if (isset($_SESSION['errorSelectHouse'])) : ?>
-                style="visibility: visible"
-                <? unset($_SESSION['errorSelectHouse']);
-            endif; ?>
-        >You have not chosen a home. Choose a house.
-        </p>
+        <p id="errorSelectHouse" class="error">You have not chosen a home. Choose a house.</p>
     </div>
     <div>
         <label for="textareaAboutMe">Your preferences, hobbies, wishes, etc.</label>
@@ -51,24 +35,12 @@
                 rows="10"
                 placeholder="I have a long TOKILL list..."
                 required
-        ><?php if (isset($_POST['aboutMe'])) {
-                echo $_POST['aboutMe'];
-            } ?></textarea>
-        <p id="errorAboutMe" class="error"
-            <?php if (isset($_SESSION['errorAboutMe'])) : ?>
-                style="visibility: visible"
-                <? unset($_SESSION['errorAboutMe']);
-            endif; ?>
-        >Indicate your hobby.</p>
+        ></textarea>
+        <p id="errorAboutMe" class="error">Indicate your hobby.</p>
     </div>
     <div class="form-save__button">
         <input type="submit" name="profileButton" value="Save">
     </div>
-    <?php if (isset($_SESSION['success'])) : ?>
-        <p>Your data has been saved successfully.</p>
-        <?
-        unset($_SESSION);
-        session_destroy();
-    endif; ?>
+    <p id="successMessage" class="hide--message">Your data has been saved successfully.</p>
 </form>
-<script src="public/js/profileForm.js"></script>
+<script src="../public/js/profile/profileForm.js"></script>

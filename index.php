@@ -1,15 +1,8 @@
-<?php
-session_start();
-include 'app/appLogic.php';
-include 'app/sliderOrSelect.php';
-
-$form = new appLogic();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
+    <link rel="shortcut icon" href="public/images/maxresdefault.jpg">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!--slider https://woocommerce.com/flexslider/ -->
     <link rel="stylesheet" href="public/slider/flexslider.css"/>
@@ -25,23 +18,22 @@ $form = new appLogic();
             href="https://fonts.googleapis.com/css?family=EB+Garamond|Open+Sans&display=swap"
             rel="stylesheet"
     />
-
     <title>GAME OF THRONES</title>
 </head>
 <body>
 <div class="page">
     <div class="flexslider">
-        <ul class="slides">
-            <?php getSlider(); ?>
+        <ul id="slider" class="slides">
         </ul>
     </div>
     <div class="page__form">
         <div class="page__heading">
             <h1>GAME OF THRONES</h1>
         </div>
-        <?php $form->getForm(); ?>
+        <div id="form"></div>
     </div>
 </div>
+<script src="public/js/main.js"></script>
 <script src="public/js/function.js"></script>
 </body>
 </html>
