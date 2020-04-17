@@ -14,17 +14,13 @@
     <link rel="stylesheet" href="public/select/style.css"/>
 
     <link rel="stylesheet" href="public/css/style.css"/>
-    <link
-            href="https://fonts.googleapis.com/css?family=EB+Garamond|Open+Sans&display=swap"
-            rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Open+Sans&display=swap" rel="stylesheet"/>
     <title>GAME OF THRONES</title>
 </head>
 <body>
 <div class="page">
     <div class="flexslider">
-        <ul id="slider" class="slides">
-        </ul>
+        <ul id="slider" class="slides"></ul>
     </div>
     <div class="page__form">
         <div class="page__heading">
